@@ -33,6 +33,10 @@ namespace class_access_db
             comando.CommandType = CommandType.TableDirect;
             comando.CommandText = tabla;
 
+            //  Cuando usas DataSource, el DataGridView automáticamente:
+            //  Lee la estructura de la tabla
+            //  Crea las columnas basándose en esa estructura
+            //  Llena los datos
             adaptador = new OleDbDataAdapter(comando);
             DataSet DS = new DataSet();
             adaptador.Fill(DS);
@@ -44,6 +48,41 @@ namespace class_access_db
             {
                 MessageBox.Show(e.ToString());
             };
+        }
+
+        public void ListarDeudores(DataGridView grilla)
+        {
+            if (grilla.Columns.Count == 0)
+            {
+                grilla.Columns.Add("ID", "ID Cliente");
+                grilla.Columns.Add("Nombre", "Nombre");
+                grilla.Columns.Add("Deuda", "Deuda");
+            }
+
+            try
+            {
+                conexion.ConnectionString = cadenaConexion;
+                conexion.Open();
+
+                comando.Connection = conexion;
+                comando.CommandType = CommandType.TableDirect;
+                comando.CommandText = tabla;
+
+                OleDbDataReader DR = comando.ExecuteReader();
+                grilla.Rows.Clear();
+
+                while (DR.Read())
+                {
+                    grilla.Rows.Add(DR.GetInt32(0), DR.GetString(1), DR.GetDecimal(2));
+                }
+
+                DR.Close();
+                conexion.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error al cargar los datos: " + e.Message);
+            }
         }
     }
 }

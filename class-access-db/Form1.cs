@@ -23,5 +23,11 @@ namespace class_access_db
             FormListadoClientes formClientes = new FormListadoClientes();
             formClientes.ShowDialog();  
         }
+
+        private void listadoDeClientesDeudoresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormClientesDeudores formClientesDeudores = new FormClientesDeudores();
+            formClientesDeudores.ShowDialog();
+        }
     }
 }
