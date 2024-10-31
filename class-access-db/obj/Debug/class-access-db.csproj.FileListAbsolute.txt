@@ -1,0 +1,11 @@
+C:\Users\luccas\Desktop\Diseño Web\Courses\C#\segundo-semestre\class-access-db\class-access-db\bin\Debug\class-access-db.exe.config
+C:\Users\luccas\Desktop\Diseño Web\Courses\C#\segundo-semestre\class-access-db\class-access-db\bin\Debug\class-access-db.exe
+C:\Users\luccas\Desktop\Diseño Web\Courses\C#\segundo-semestre\class-access-db\class-access-db\bin\Debug\class-access-db.pdb
+C:\Users\luccas\Desktop\Diseño Web\Courses\C#\segundo-semestre\class-access-db\class-access-db\obj\Debug\class-access-db.csproj.AssemblyReference.cache
+C:\Users\luccas\Desktop\Diseño Web\Courses\C#\segundo-semestre\class-access-db\class-access-db\obj\Debug\class_access_db.Form1.resources
+C:\Users\luccas\Desktop\Diseño Web\Courses\C#\segundo-semestre\class-access-db\class-access-db\obj\Debug\class_access_db.Properties.Resources.resources
+C:\Users\luccas\Desktop\Diseño Web\Courses\C#\segundo-semestre\class-access-db\class-access-db\obj\Debug\class-access-db.csproj.GenerateResource.cache
+C:\Users\luccas\Desktop\Diseño Web\Courses\C#\segundo-semestre\class-access-db\class-access-db\obj\Debug\class-access-db.csproj.CoreCompileInputs.cache
+C:\Users\luccas\Desktop\Diseño Web\Courses\C#\segundo-semestre\class-access-db\class-access-db\obj\Debug\class-access-db.exe
+C:\Users\luccas\Desktop\Diseño Web\Courses\C#\segundo-semestre\class-access-db\class-access-db\obj\Debug\class-access-db.pdb
+C:\Users\luccas\Desktop\Diseño Web\Courses\C#\segundo-semestre\class-access-db\class-access-db\obj\Debug\class_access_db.Forms.FormListadoClientes.resources
