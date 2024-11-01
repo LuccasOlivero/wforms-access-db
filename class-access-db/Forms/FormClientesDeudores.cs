@@ -21,6 +21,10 @@ namespace class_access_db.Forms
         {
             clsCliente objClientesDeudores = new clsCliente();
             objClientesDeudores.ListarDeudores(GrillaDeudores);
+
+            textBoxDeudores.Text = objClientesDeudores.TotalDeuda.ToString();
+            textBoxCantDeudores.Text = objClientesDeudores.CantDeudores.ToString("0,00");
+            textBoxPromedio.Text = objClientesDeudores.PromedioDeuda.ToString("0,00");
         }
     }
 }

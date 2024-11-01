@@ -30,11 +30,11 @@
         {
             this.btnListarDeudores = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBoxPromedio = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBoxCantDeudores = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxDeudores = new System.Windows.Forms.TextBox();
             this.GrillaDeudores = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.GrillaDeudores)).BeginInit();
@@ -59,12 +59,13 @@
             this.label4.TabIndex = 18;
             this.label4.Text = "Promedio de deuda";
             // 
-            // textBox3
+            // textBoxPromedio
             // 
-            this.textBox3.Location = new System.Drawing.Point(387, 271);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 17;
+            this.textBoxPromedio.Enabled = false;
+            this.textBoxPromedio.Location = new System.Drawing.Point(387, 271);
+            this.textBoxPromedio.Name = "textBoxPromedio";
+            this.textBoxPromedio.Size = new System.Drawing.Size(100, 20);
+            this.textBoxPromedio.TabIndex = 17;
             // 
             // label3
             // 
@@ -75,12 +76,13 @@
             this.label3.TabIndex = 16;
             this.label3.Text = "Cantidad de clientes";
             // 
-            // textBox2
+            // textBoxCantDeudores
             // 
-            this.textBox2.Location = new System.Drawing.Point(387, 245);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 15;
+            this.textBoxCantDeudores.Enabled = false;
+            this.textBoxCantDeudores.Location = new System.Drawing.Point(387, 245);
+            this.textBoxCantDeudores.Name = "textBoxCantDeudores";
+            this.textBoxCantDeudores.Size = new System.Drawing.Size(100, 20);
+            this.textBoxCantDeudores.TabIndex = 15;
             // 
             // label2
             // 
@@ -91,12 +93,13 @@
             this.label2.TabIndex = 14;
             this.label2.Text = "Total de deuda";
             // 
-            // textBox1
+            // textBoxDeudores
             // 
-            this.textBox1.Location = new System.Drawing.Point(387, 219);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 13;
+            this.textBoxDeudores.Enabled = false;
+            this.textBoxDeudores.Location = new System.Drawing.Point(387, 219);
+            this.textBoxDeudores.Name = "textBoxDeudores";
+            this.textBoxDeudores.Size = new System.Drawing.Size(100, 20);
+            this.textBoxDeudores.TabIndex = 13;
             // 
             // GrillaDeudores
             // 
@@ -122,11 +125,11 @@
             this.ClientSize = new System.Drawing.Size(499, 352);
             this.Controls.Add(this.btnListarDeudores);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.textBoxPromedio);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.textBoxCantDeudores);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBoxDeudores);
             this.Controls.Add(this.GrillaDeudores);
             this.Controls.Add(this.label1);
             this.Name = "FormClientesDeudores";
@@ -140,11 +143,11 @@
         #endregion
         private System.Windows.Forms.Button btnListarDeudores;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBoxPromedio;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBoxCantDeudores;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxDeudores;
         private System.Windows.Forms.DataGridView GrillaDeudores;
         private System.Windows.Forms.Label label1;
     }

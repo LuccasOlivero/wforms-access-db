@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Data.OleDb;
 using System.Windows.Forms;
+using System.IO;
 
 
 namespace class_access_db
@@ -21,6 +22,23 @@ namespace class_access_db
 
         private string cadenaConexion = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source = Clientes.mdb";
         private string tabla = "Cliente";
+
+        private decimal deuda = 0;
+        private int cantidad = 0;  
+        public Decimal TotalDeuda
+        {
+            get { return deuda; }
+        }
+
+        public Int32 CantDeudores
+        {
+            get { return cantidad; }
+        }
+
+        public decimal PromedioDeuda
+        {
+            get { return deuda / cantidad; }
+        }
 
         public void Listar(DataGridView Grilla)
         {
@@ -71,10 +89,23 @@ namespace class_access_db
                 OleDbDataReader DR = comando.ExecuteReader();
                 grilla.Rows.Clear();
 
+
+            if (DR.HasRows)
+            {
                 while (DR.Read())
                 {
-                    grilla.Rows.Add(DR.GetInt32(0), DR.GetString(1), DR.GetDecimal(2));
+                    if (DR.GetDecimal(2) > 0)
+                    {
+                        grilla.Rows.Add(
+                        DR.GetInt32(0), // idCliente
+                        DR.GetString(1), // nombre
+                        DR.GetDecimal(2)); // deuda
+
+                        cantidad++;
+                        deuda = deuda + DR.GetDecimal(2); ;
+                    }
                 }
+            }
 
                 DR.Close();
                 conexion.Close();
@@ -83,6 +114,32 @@ namespace class_access_db
             {
                 MessageBox.Show("Error al cargar los datos: " + e.Message);
             }
+        }
+
+        public void ReporteClientes() 
+        {
+            conexion.ConnectionString = cadenaConexion;
+            conexion.Open();
+
+            comando.CommandText= tabla;
+            comando.CommandType = CommandType.TableDirect;
+            comando.Connection = conexion;
+
+            OleDbDataReader DR = comando.ExecuteReader();
+
+            StreamWriter AD = new StreamWriter("Reportes clientes.txt", false);
+            AD.WriteLine("Listado clientes\n");
+            AD.WriteLine("Codigo;Clientes;Deuda\n");
+
+            if(DR.HasRows)
+            {
+                while(DR.Read())
+                {
+
+                }
+            }
+
+            conexion.Close();
         }
     }
 }

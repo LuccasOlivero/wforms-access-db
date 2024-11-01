@@ -38,7 +38,7 @@
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.btnOrdenar = new System.Windows.Forms.Button();
             this.btnListar = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnGenerarReporte = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             this.SuspendLayout();
             // 
@@ -126,21 +126,22 @@
             this.btnListar.UseVisualStyleBackColor = true;
             this.btnListar.Click += new System.EventHandler(this.btnListar_Click);
             // 
-            // button3
+            // btnGenerarReporte
             // 
-            this.button3.Location = new System.Drawing.Point(176, 309);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(155, 33);
-            this.button3.TabIndex = 10;
-            this.button3.Text = "Generar reporte";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnGenerarReporte.Location = new System.Drawing.Point(176, 309);
+            this.btnGenerarReporte.Name = "btnGenerarReporte";
+            this.btnGenerarReporte.Size = new System.Drawing.Size(155, 33);
+            this.btnGenerarReporte.TabIndex = 10;
+            this.btnGenerarReporte.Text = "Generar reporte";
+            this.btnGenerarReporte.UseVisualStyleBackColor = true;
+            this.btnGenerarReporte.Click += new System.EventHandler(this.btnGenerarReporte_Click);
             // 
             // FormListadoClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(513, 354);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.btnGenerarReporte);
             this.Controls.Add(this.btnListar);
             this.Controls.Add(this.btnOrdenar);
             this.Controls.Add(this.label4);
@@ -171,6 +172,6 @@
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Button btnOrdenar;
         private System.Windows.Forms.Button btnListar;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnGenerarReporte;
     }
 }

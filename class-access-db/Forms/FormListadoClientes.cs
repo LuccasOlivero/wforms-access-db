@@ -22,5 +22,11 @@ namespace class_access_db.Forms
             clsCliente objCliente = new clsCliente();
             objCliente.Listar(Grilla);
         }
+
+        private void btnGenerarReporte_Click(object sender, EventArgs e)
+        {
+            clsCliente objCliente = new clsCliente();
+
+        }
     }
 }
