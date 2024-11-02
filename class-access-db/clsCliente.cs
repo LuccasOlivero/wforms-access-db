@@ -118,28 +118,49 @@ namespace class_access_db
 
         public void ReporteClientes() 
         {
-            conexion.ConnectionString = cadenaConexion;
-            conexion.Open();
-
-            comando.CommandText= tabla;
-            comando.CommandType = CommandType.TableDirect;
-            comando.Connection = conexion;
-
-            OleDbDataReader DR = comando.ExecuteReader();
-
-            StreamWriter AD = new StreamWriter("Reportes clientes.txt", false);
-            AD.WriteLine("Listado clientes\n");
-            AD.WriteLine("Codigo;Clientes;Deuda\n");
-
-            if(DR.HasRows)
+            try
             {
-                while(DR.Read())
-                {
 
+                conexion.ConnectionString = cadenaConexion;
+                conexion.Open();
+
+                comando.CommandText = tabla;
+                comando.CommandType = CommandType.TableDirect;
+                comando.Connection = conexion;
+
+                OleDbDataReader DR = comando.ExecuteReader();
+
+                StreamWriter AD = new StreamWriter("Reportes clientes.txt", false);
+                AD.WriteLine("Listado clientes\n");
+                AD.WriteLine("Codigo;Clientes;Deuda\n");
+
+                if (DR.HasRows)
+                {
+                    while (DR.Read())
+                    {
+                        AD.Write(DR.GetInt32(0));
+                        AD.Write(";");
+                        AD.Write(DR.GetString(1));
+                        AD.Write(";");
+                        AD.WriteLine(DR.GetDecimal(2));
+
+                        cantidad++;
+                        deuda = deuda + DR.GetDecimal(2);
+                    }
+                    AD.Write("Cantidad de clientes: ;");
+                    AD.WriteLine(cantidad);
+                    AD.Write("Deuda de los clientes: ;");
+                    AD.WriteLine(deuda.ToString("0,00"));
                 }
+
+                MessageBox.Show("reporte generado!");
+                AD.Close();
+                conexion.Close();
+            } catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
             }
 
-            conexion.Close();
         }
     }
 }

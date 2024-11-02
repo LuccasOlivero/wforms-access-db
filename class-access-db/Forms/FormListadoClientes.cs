@@ -26,7 +26,7 @@ namespace class_access_db.Forms
         private void btnGenerarReporte_Click(object sender, EventArgs e)
         {
             clsCliente objCliente = new clsCliente();
-
+            objCliente.ReporteClientes();
         }
     }
 }

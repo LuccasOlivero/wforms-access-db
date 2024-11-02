@@ -1,0 +1,9 @@
+Listado clientes
+
+Codigo;Clientes;Deuda
+
+1;lucas;0,0000
+2;nico;2
+3;cesar;0,0000
+Cantidad de clientes: ;3
+Deuda de los clientes: ;2,0000
