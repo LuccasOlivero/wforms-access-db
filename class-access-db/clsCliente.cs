@@ -147,6 +147,7 @@ namespace class_access_db
                         cantidad++;
                         deuda = deuda + DR.GetDecimal(2);
                     }
+
                     AD.Write("Cantidad de clientes: ;");
                     AD.WriteLine(cantidad);
                     AD.Write("Deuda de los clientes: ;");
