@@ -23,11 +23,46 @@ namespace class_access_db
         private string cadenaConexion = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source = Clientes.mdb";
         private string tabla = "Cliente";
 
-        private decimal deuda = 0;
-        private int cantidad = 0;  
-        public Decimal TotalDeuda
+        private decimal deudaTotal = 0;
+        private int cantidad = 0;
+
+        private Int32 idCli;
+        private string nombre;
+        private decimal deuda;
+        private decimal limite;
+        private Int32 idCiu;
+
+        public Int32 idCliente
+        {
+            get { return idCli; }
+            set { idCli = value; }
+        }
+
+        public string Nombre
+        {
+            get { return nombre; }
+            set { nombre = value; }
+        }
+
+        public decimal Limite
+        {
+            get { return limite; }
+            set { limite = value; }
+        }
+        public decimal Deuda
         {
             get { return deuda; }
+            set { deuda = value; }
+        }
+
+        public Int32 idCiudad
+        {
+            get { return idCiu; }
+            set { idCiu = value; }
+        }
+        public Decimal TotalDeuda
+        { 
+            get { return deudaTotal; }
         }
 
         public Int32 CantDeudores
@@ -37,7 +72,7 @@ namespace class_access_db
 
         public decimal PromedioDeuda
         {
-            get { return deuda / cantidad; }
+            get { return deudaTotal / cantidad; }
         }
 
         public void Listar(DataGridView Grilla)
@@ -66,6 +101,46 @@ namespace class_access_db
             {
                 MessageBox.Show(e.ToString());
             };
+        }
+
+        public void BuscarCliente ( Int32 idParaBuscar) 
+        {
+            try
+            {
+                conexion.ConnectionString = cadenaConexion;
+                conexion.Open();
+
+                comando.Connection = conexion;
+                comando.CommandType = CommandType.TableDirect;
+                comando.CommandText = "idCliente";
+
+                OleDbDataReader DR = comando.ExecuteReader();
+
+                idCli = 0;
+
+                if( DR.HasRows )
+                {
+                    while (DR.Read())
+                    {
+                        if(DR.GetInt32(0) == idParaBuscar)
+                        {
+                            idCli = DR.GetInt32(0);
+                            nombre = DR.GetString(1);
+                            deuda = DR.GetInt32(2);
+                            limite  = DR.GetInt32(3);
+                            idCiu = DR.GetInt32(4);
+                        }
+                    }
+                }
+
+            }
+            catch (Exception e)
+            {
+
+            } finally
+            {
+                conexion.Close();
+            }
         }
 
         public void ListarDeudores(DataGridView grilla)
@@ -102,7 +177,7 @@ namespace class_access_db
                         DR.GetDecimal(2)); // deuda
 
                         cantidad++;
-                        deuda = deuda + DR.GetDecimal(2); ;
+                            deudaTotal = deudaTotal + DR.GetDecimal(2); ;
                     }
                 }
             }
@@ -145,13 +220,13 @@ namespace class_access_db
                         AD.WriteLine(DR.GetDecimal(2));
 
                         cantidad++;
-                        deuda = deuda + DR.GetDecimal(2);
+                        deudaTotal = deudaTotal + DR.GetDecimal(2);
                     }
 
                     AD.Write("Cantidad de clientes: ;");
                     AD.WriteLine(cantidad);
                     AD.Write("Deuda de los clientes: ;");
-                    AD.WriteLine(deuda.ToString("0,00"));
+                    AD.WriteLine(deudaTotal.ToString("0,00"));
                 }
 
                 MessageBox.Show("reporte generado!");

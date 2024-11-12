@@ -10,3 +10,4 @@ C:\Users\luccas\Desktop\Diseño Web\Courses\C#\segundo-semestre\class-access-db\
 C:\Users\luccas\Desktop\Diseño Web\Courses\C#\segundo-semestre\class-access-db\class-access-db\obj\Debug\class-access-db.pdb
 C:\Users\luccas\Desktop\Diseño Web\Courses\C#\segundo-semestre\class-access-db\class-access-db\obj\Debug\class_access_db.Forms.FormListadoClientes.resources
 C:\Users\luccas\Desktop\Diseño Web\Courses\C#\segundo-semestre\class-access-db\class-access-db\obj\Debug\class_access_db.Forms.FormClientesDeudores.resources
+C:\Users\luccas\Desktop\Diseño Web\Courses\C#\segundo-semestre\class-access-db\class-access-db\obj\Debug\class_access_db.Forms.FormBuscarCliente.resources
