@@ -19,10 +19,19 @@ namespace class_access_db.Forms
 
         private void button1_Click(object sender, EventArgs e)
         {
+            bool check = textBox1.Text == "" ? true : false;
+
+            if (check)
+            {
+                MessageBox.Show("Ingresa un id");
+                return;
+            }
+
             Int32 idCliente = Convert.ToInt32(textBox1.Text);
 
             clsCliente objCliente = new clsCliente();
             objCliente.BuscarCliente(idCliente);
+
             if(objCliente.idCliente != 0)
             {
                 textBox2.Text = objCliente.Nombre;

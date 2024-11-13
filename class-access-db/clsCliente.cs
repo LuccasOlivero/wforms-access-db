@@ -112,7 +112,7 @@ namespace class_access_db
 
                 comando.Connection = conexion;
                 comando.CommandType = CommandType.TableDirect;
-                comando.CommandText = "idCliente";
+                comando.CommandText = tabla;
 
                 OleDbDataReader DR = comando.ExecuteReader();
 
@@ -136,7 +136,7 @@ namespace class_access_db
             }
             catch (Exception e)
             {
-
+                MessageBox.Show(e.ToString());  
             } finally
             {
                 conexion.Close();
