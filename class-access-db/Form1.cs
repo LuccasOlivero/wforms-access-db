@@ -35,5 +35,11 @@ namespace class_access_db
             FormBuscarCliente formBuscarCliente = new FormBuscarCliente();
             formBuscarCliente.ShowDialog();
         }
+
+        private void agregarNuevoClienteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormAgregarNuevoCliente formAgregarNuevoCliente = new FormAgregarNuevoCliente();
+            formAgregarNuevoCliente.ShowDialog();
+        }
     }
 }

@@ -9,6 +9,7 @@ using System.Data;
 using System.Data.OleDb;
 using System.Windows.Forms;
 using System.IO;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 
 namespace class_access_db
@@ -21,7 +22,7 @@ namespace class_access_db
         private OleDbDataAdapter adaptador = new OleDbDataAdapter();
 
         private string cadenaConexion = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source = Clientes.mdb";
-        private string tabla = "Cliente";
+        public string tabla = "Cliente";
 
         private decimal deudaTotal = 0;
         private int cantidad = 0;
@@ -143,6 +144,43 @@ namespace class_access_db
             }
         }
 
+        public void Llenar()
+        {
+            try
+            {
+                conexion.ConnectionString = cadenaConexion;
+                conexion.Open();
+
+                comando.Connection = conexion;
+                comando.CommandType = CommandType.TableDirect;
+                comando.CommandText = tabla;
+
+                adaptador = new OleDbDataAdapter(comando);
+
+                DataSet DS = new DataSet();
+                adaptador.Fill(DS, tabla);
+                DataTable tablaToFill = DS.Tables[tabla];
+                DataRow fila = tablaToFill.NewRow();
+
+                fila["nombre"] = nombre;
+                fila["deuda"] = deuda;
+                fila["limite"] = limite;
+                fila["idCiudad"] = idCiu;
+
+                tablaToFill.Rows.Add(fila);
+
+                OleDbCommandBuilder ConciliaCambios = new OleDbCommandBuilder(adaptador);
+
+                adaptador.Update(DS, tabla);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            } finally
+            {
+                conexion.Close();
+            }
+        }
         public void ListarDeudores(DataGridView grilla)
         {
             if (grilla.Columns.Count == 0)
