@@ -30,7 +30,14 @@ namespace class_access_db.Forms
             objCliente.Limite = Convert.ToInt32(textBox2.Text);
             objCliente.idCiudad = Convert.ToInt32(cmbCiudad.SelectedValue);
             objCliente.Llenar();
-            MessageBox.Show("Listo pa");
+            MessageBox.Show("Listo");
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            clsCliente objCliente = new clsCliente();
+            objCliente.AgregarNuevoRegistro();
+            MessageBox.Show("Listo");
         }
     }
 }

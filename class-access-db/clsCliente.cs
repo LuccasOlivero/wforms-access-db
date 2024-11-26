@@ -10,6 +10,7 @@ using System.Data.OleDb;
 using System.Windows.Forms;
 using System.IO;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.ComponentModel;
 
 
 namespace class_access_db
@@ -30,7 +31,7 @@ namespace class_access_db
         private Int32 idCli;
         private string nombre;
         private decimal deuda;
-        private decimal limite;
+        private Int32 limite;
         private Int32 idCiu;
 
         public Int32 idCliente
@@ -45,7 +46,7 @@ namespace class_access_db
             set { nombre = value; }
         }
 
-        public decimal Limite
+        public Int32 Limite
         {
             get { return limite; }
             set { limite = value; }
@@ -127,13 +128,12 @@ namespace class_access_db
                         {
                             idCli = DR.GetInt32(0);
                             nombre = DR.GetString(1);
-                            deuda = DR.GetInt32(2);
-                            limite  = DR.GetInt32(3);
-                            idCiu = DR.GetInt32(4);
+                            deuda = DR.GetDecimal(2);
+                            idCiu = DR.GetInt32(3);
+                            limite = DR.GetInt32(4);
                         }
                     }
                 }
-
             }
             catch (Exception e)
             {
@@ -275,6 +275,83 @@ namespace class_access_db
                 MessageBox.Show(e.ToString());
             }
 
+        }
+
+        public void ModificarCliente (Int32 idCliente)
+        {
+            try
+            {
+                String sql = "";
+                sql = "UPDATE Cliente SET limite = " + limite.ToString() + " WHERE idCliente = " + idCliente.ToString();
+
+                conexion.ConnectionString = cadenaConexion;
+                conexion.Open();
+
+                comando.Connection = conexion;
+                comando.CommandType = CommandType.Text;
+                comando.CommandText = sql;
+
+                comando.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+            finally
+            {
+                conexion.Close();
+            }
+        }
+
+        public void Eliminar(Int32 idCliente)
+        {
+            try
+            {
+                String sql = "";
+                sql = "DELETE FROM Cliente WHERE idCliente = " + idCliente.ToString();
+
+                conexion.ConnectionString = cadenaConexion;
+                conexion.Open();
+
+                comando.Connection = conexion;
+                comando.CommandType = CommandType.Text;
+                comando.CommandText = sql;
+
+                comando.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+            finally
+            {
+                conexion.Close();
+            }
+        }
+
+        public void AgregarNuevoRegistro()
+        {
+            try
+            {
+                String sql = "INSERT INTO Cliente(nombre, deuda, idCiudad, limite) VALUES ('" + nombre + "',23," + idCiu.ToString() + "," + limite.ToString() + ")";
+
+                conexion.ConnectionString = cadenaConexion;
+                conexion.Open();
+
+                comando.Connection = conexion;
+                comando.CommandType = CommandType.Text;
+                comando.CommandText = sql;
+
+                comando.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+            finally
+            {
+                conexion.Close();
+            }
         }
     }
 }

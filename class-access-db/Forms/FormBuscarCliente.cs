@@ -43,5 +43,19 @@ namespace class_access_db.Forms
                 MessageBox.Show("no encontrado");
             }
         }
+
+        private void button3_Click(object sender, EventArgs e) // guardar
+        {
+            clsCliente cli = new clsCliente();
+            cli.ModificarCliente(Convert.ToInt32(textBox1.Text));
+            MessageBox.Show("guardado");
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            clsCliente cli = new clsCliente();
+            cli.Eliminar(Convert.ToInt32(textBox1.Text));
+            MessageBox.Show("Eliminado");
+        }
     }
 }
