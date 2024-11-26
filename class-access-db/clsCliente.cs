@@ -229,6 +229,49 @@ namespace class_access_db
             }
         }
 
+        public void ListarClientes(DataGridView grilla)
+        {
+            try
+            {
+                conexion.ConnectionString = cadenaConexion;
+                conexion.Open();
+
+                comando.Connection = conexion;
+                comando.CommandType = CommandType.TableDirect;
+                comando.CommandText = tabla;
+
+                OleDbDataReader DR = comando.ExecuteReader();
+                grilla.Rows.Clear();
+
+                clsCiudad ciu = new clsCiudad();
+                string nombreCiudad = "";
+                    
+                if (DR.HasRows)
+                {
+                    while (DR.Read())
+                    {
+                            nombreCiudad = ciu.Buscar(DR.GetInt32(3));
+                            grilla.Rows.Add(
+                            DR.GetInt32(0), // idCliente
+                            DR.GetString(1), // nombre
+                            nombreCiudad,
+                            DR.GetInt32(4), // limite
+                            DR.GetDecimal(2)); // deuda
+
+                            cantidad++;
+                            deudaTotal += DR.GetDecimal(2); ;
+                    }
+                }
+
+                DR.Close();
+                conexion.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error al cargar los datos: " + e.Message);
+            }
+        }
+
         public void ReporteClientes() 
         {
             try

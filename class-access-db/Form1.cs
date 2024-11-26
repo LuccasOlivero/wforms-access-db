@@ -41,5 +41,9 @@ namespace class_access_db
             FormAgregarNuevoCliente formAgregarNuevoCliente = new FormAgregarNuevoCliente();
             formAgregarNuevoCliente.ShowDialog();
         }
+
+        private void listadoDeClientesOrdenadosPorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+        }
     }
 }

@@ -49,5 +49,45 @@ namespace class_access_db
                 conexion.Close();
             }
         }
+
+        public string Buscar (Int32 idCiudad)
+        {
+            try
+            {
+                conexion.ConnectionString = cadenaDeConexion;
+                conexion.Open();
+
+                comando.Connection = conexion;
+                comando.CommandType = CommandType.TableDirect;
+                comando.CommandText = tabla;
+
+                OleDbDataReader DR = comando.ExecuteReader();
+
+                string res = "";
+
+                if (DR.HasRows)
+                {
+                    while (DR.Read())
+                    {
+                        if(DR.GetInt32(0) == idCiudad)
+                        {
+                            res = DR.GetString(1);
+                        }
+                    }
+                }
+
+                DR.Close();
+                conexion.Close();
+                return res;
+            }
+            catch (Exception e)
+            {
+                return(e.ToString());
+            }
+            finally
+            {
+                conexion.Close();
+            }
+        }
     }
 }

@@ -39,6 +39,11 @@
             this.btnOrdenar = new System.Windows.Forms.Button();
             this.btnListar = new System.Windows.Forms.Button();
             this.btnGenerarReporte = new System.Windows.Forms.Button();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             this.SuspendLayout();
             // 
@@ -54,14 +59,20 @@
             // Grilla
             // 
             this.Grilla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Grilla.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Column3,
+            this.Column4,
+            this.Column5});
             this.Grilla.Location = new System.Drawing.Point(15, 40);
             this.Grilla.Name = "Grilla";
-            this.Grilla.Size = new System.Drawing.Size(475, 150);
+            this.Grilla.Size = new System.Drawing.Size(709, 150);
             this.Grilla.TabIndex = 1;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(390, 217);
+            this.textBox1.Location = new System.Drawing.Point(624, 216);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 20);
             this.textBox1.TabIndex = 2;
@@ -69,7 +80,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(281, 220);
+            this.label2.Location = new System.Drawing.Point(515, 219);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(79, 13);
             this.label2.TabIndex = 3;
@@ -78,7 +89,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(281, 246);
+            this.label3.Location = new System.Drawing.Point(515, 245);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(103, 13);
             this.label3.TabIndex = 5;
@@ -86,7 +97,7 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(390, 243);
+            this.textBox2.Location = new System.Drawing.Point(624, 242);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(100, 20);
             this.textBox2.TabIndex = 4;
@@ -94,7 +105,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(281, 272);
+            this.label4.Location = new System.Drawing.Point(515, 271);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(99, 13);
             this.label4.TabIndex = 7;
@@ -102,14 +113,14 @@
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(390, 269);
+            this.textBox3.Location = new System.Drawing.Point(624, 268);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(100, 20);
             this.textBox3.TabIndex = 6;
             // 
             // btnOrdenar
             // 
-            this.btnOrdenar.Location = new System.Drawing.Point(15, 309);
+            this.btnOrdenar.Location = new System.Drawing.Point(249, 308);
             this.btnOrdenar.Name = "btnOrdenar";
             this.btnOrdenar.Size = new System.Drawing.Size(155, 33);
             this.btnOrdenar.TabIndex = 8;
@@ -118,7 +129,7 @@
             // 
             // btnListar
             // 
-            this.btnListar.Location = new System.Drawing.Point(335, 309);
+            this.btnListar.Location = new System.Drawing.Point(569, 308);
             this.btnListar.Name = "btnListar";
             this.btnListar.Size = new System.Drawing.Size(155, 33);
             this.btnListar.TabIndex = 9;
@@ -128,7 +139,7 @@
             // 
             // btnGenerarReporte
             // 
-            this.btnGenerarReporte.Location = new System.Drawing.Point(176, 309);
+            this.btnGenerarReporte.Location = new System.Drawing.Point(410, 308);
             this.btnGenerarReporte.Name = "btnGenerarReporte";
             this.btnGenerarReporte.Size = new System.Drawing.Size(155, 33);
             this.btnGenerarReporte.TabIndex = 10;
@@ -136,11 +147,41 @@
             this.btnGenerarReporte.UseVisualStyleBackColor = true;
             this.btnGenerarReporte.Click += new System.EventHandler(this.btnGenerarReporte_Click);
             // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Codigo";
+            this.Column1.Name = "Column1";
+            this.Column1.Width = 60;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Nombre";
+            this.Column2.Name = "Column2";
+            this.Column2.Width = 200;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Limite de deuda";
+            this.Column3.Name = "Column3";
+            this.Column3.Width = 80;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Ciudad";
+            this.Column4.Name = "Column4";
+            this.Column4.Width = 150;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Deuda";
+            this.Column5.Name = "Column5";
+            this.Column5.Width = 80;
+            // 
             // FormListadoClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(513, 354);
+            this.ClientSize = new System.Drawing.Size(736, 354);
             this.Controls.Add(this.btnGenerarReporte);
             this.Controls.Add(this.btnListar);
             this.Controls.Add(this.btnOrdenar);
@@ -173,5 +214,10 @@
         private System.Windows.Forms.Button btnOrdenar;
         private System.Windows.Forms.Button btnListar;
         private System.Windows.Forms.Button btnGenerarReporte;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
     }
 }

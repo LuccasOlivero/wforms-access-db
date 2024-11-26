@@ -20,7 +20,7 @@ namespace class_access_db.Forms
         private void btnListar_Click(object sender, EventArgs e)
         {
             clsCliente objCliente = new clsCliente();
-            objCliente.Listar(Grilla);
+            objCliente.ListarClientes(Grilla);
         }
 
         private void btnGenerarReporte_Click(object sender, EventArgs e)
