@@ -282,15 +282,15 @@ namespace class_access_db
             try
             {
                 String sql = "";
-                sql = "UPDATE Cliente SET limite = " + limite.ToString() + " WHERE idCliente = " + idCliente.ToString();
-
+                sql = "UPDATE Cliente SET Limite = ";
+                sql = sql + limite.ToString();
+                sql = sql + " WHERE IdCliente = ";
+                sql = sql + idCliente.ToString();
                 conexion.ConnectionString = cadenaConexion;
                 conexion.Open();
-
                 comando.Connection = conexion;
                 comando.CommandType = CommandType.Text;
                 comando.CommandText = sql;
-
                 comando.ExecuteNonQuery();
             }
             catch (Exception e)
@@ -333,24 +333,21 @@ namespace class_access_db
         {
             try
             {
-                String sql = "INSERT INTO Cliente(nombre, deuda, idCiudad, limite) VALUES ('" + nombre + "',23," + idCiu.ToString() + "," + limite.ToString() + ")";
+                String sql = "";
+                sql = "INSERT INTO Cliente (Nombre, Deuda, IdCiudad, Limite)";
+                sql = sql + "VALUES ('" + nombre + "',0," + limite.ToString() + "," + idCiu.ToString() + ") ";
 
                 conexion.ConnectionString = cadenaConexion;
                 conexion.Open();
-
                 comando.Connection = conexion;
                 comando.CommandType = CommandType.Text;
                 comando.CommandText = sql;
-
                 comando.ExecuteNonQuery();
+                conexion.Close();
             }
             catch (Exception e)
             {
                 MessageBox.Show(e.ToString());
-            }
-            finally
-            {
-                conexion.Close();
             }
         }
     }
